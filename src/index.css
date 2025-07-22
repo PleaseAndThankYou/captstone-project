@@ -142,13 +142,19 @@ img {
   display: block;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  object-fit: cover; 
+  object-fit: cover;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
 img:hover {
   transform: scale(1.05);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -164,3 +170,45 @@ img:hover {
   height: 405px;
 }
 
+
+.specials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fdfdfd;
+}
+
+.specials-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.specials-title {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.specials-description {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.specials-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #146bc1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.specials-button:hover {
+  background-color: #1058a4;
+}

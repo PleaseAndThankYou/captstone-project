@@ -1,18 +1,16 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import BookingPage from './BookingPage';
+
 
 const Main = () => {
     return (
-      <main
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '80px',
-          borderBottom: '1px solid #ddd',
-          backgroundColor: '#fff',
-        }}
-      >
-        <h1>Test</h1>
+      <main className="main">
+            <Routes>
+                <Route path="/" element={<HomePage />}></Route>
+                <Route path="/booking" element={<BookingPage />}></Route>
+            </Routes>
       </main>
     );
   };
