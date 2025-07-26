@@ -181,7 +181,7 @@ img:hover {
 }
 
 .specials-image {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -211,4 +211,107 @@ img:hover {
 
 .specials-button:hover {
   background-color: #1058a4;
+}
+
+
+/* Booking Form */
+.booking-form {
+  display: grid;
+  gap: 20px;
+  max-width: 360px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.booking-form label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.booking-form input[type="date"],
+.booking-form input[type="number"],
+.booking-form select {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #146bc1;
+  outline: none;
+  background-color: #fff;
+}
+
+.booking-form input[type="submit"] {
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  background-color: #146bc1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form input[type="submit"]:hover {
+  background-color: #1058a4;
+}
+
+
+/* Popup styles */
+/* Popup overlay covers the entire screen with a semi-transparent background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* The popup box styling */
+.popup-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  min-width: 300px;
+  text-align: center;
+}
+
+/* Popup message paragraph spacing and font size */
+.popup-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Close button styling */
+.popup-content button {
+  padding: 8px 20px;
+  background-color: #146BC1; /* Your primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the close button */
+.popup-content button:hover {
+  background-color: #0f528c;
 }
