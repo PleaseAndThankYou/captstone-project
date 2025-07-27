@@ -33,8 +33,72 @@ describe('BookingForm component', () => {
 
   test('calls submitForm on valid submit', () => {
     render(<BookingForm {...defaultProps} />);
-    fireEvent.change(screen.getByLabelText(/choose time/i), { target: { value: '17:00' } });
-    fireEvent.click(screen.getByRole('button', { name: /reserve a table/i }));
+
+    fireEvent.change(screen.getByLabelText(/choose date/i), {
+      target: { value: '2025-07-30' },
+    });
+    fireEvent.change(screen.getByLabelText(/choose time/i), {
+      target: { value: '17:00' },
+    });
+    fireEvent.change(screen.getByLabelText(/number of guests/i), {
+      target: { value: '4' },
+    });
+    fireEvent.change(screen.getByLabelText(/occasion/i), {
+      target: { value: 'Birthday' },
+    });
+
+    const button = screen.getByRole('button', { name: /reserve a table/i });
+    expect(button).toBeEnabled();
+
+    fireEvent.click(button);
     expect(mockSubmitForm).toHaveBeenCalled();
   });
+
+
+  test('submit button is disabled by default', () => {
+    render(<BookingForm {...defaultProps} />);
+    expect(screen.getByRole('button', { name: /reserve a table/i })).toBeDisabled();
+  });
+
+  test('submit button enables when form is valid', () => {
+    render(<BookingForm {...defaultProps} />);
+
+    fireEvent.change(screen.getByLabelText(/choose date/i), {
+      target: { value: '2025-07-30' },
+    });
+    fireEvent.change(screen.getByLabelText(/choose time/i), {
+      target: { value: '17:00' },
+    });
+    fireEvent.change(screen.getByLabelText(/number of guests/i), {
+      target: { value: '4' },
+    });
+    fireEvent.change(screen.getByLabelText(/occasion/i), {
+      target: { value: 'Birthday' },
+    });
+
+    expect(screen.getByRole('button', { name: /reserve a table/i })).toBeEnabled();
+  });
+
+  test('submit button disabled if guest count is out of bounds', () => {
+    render(<BookingForm {...defaultProps} />);
+
+    fireEvent.change(screen.getByLabelText(/choose date/i), {
+      target: { value: '2025-07-30' },
+    });
+    fireEvent.change(screen.getByLabelText(/choose time/i), {
+      target: { value: '17:00' },
+    });
+    fireEvent.change(screen.getByLabelText(/number of guests/i), {
+      target: { value: '0' }, // invalid guest count
+    });
+    fireEvent.change(screen.getByLabelText(/occasion/i), {
+      target: { value: 'Anniversary' },
+    });
+
+    expect(screen.getByRole('button', { name: /reserve a table/i })).toBeDisabled();
+    expect(screen.getByText(/must be between 1 and 10/i)).toBeInTheDocument();
+  });
+
+
+
 });
